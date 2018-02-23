@@ -1,0 +1,9 @@
+ok heres the full way to go from jar to final dmg
+
+use export.sh to convert the jar to a temp dmg or pkg (recommended dmg, but doesn’t really matter)
+
+use that installer to get the .app of the project
+
+use DMG canvas to create and export a much nicer dmg for the application
+
+and ur done
