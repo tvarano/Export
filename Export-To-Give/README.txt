@@ -1,8 +1,7 @@
 How to export.
 Prerequisites:
 	- A fully functioning runnable jar 
-		- Jar title MUST BE name-version.jar
-		- so the application Export 1.2.3 would be named Export-1.2.3.jar
+		- Jar title MUST BE the name of the application
 	- A png icon for the application (larger the better)
 	- A png background for the installer
 

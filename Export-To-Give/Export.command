@@ -14,7 +14,8 @@ then
 echo 'exit'
 exit
 fi
-    cd "/Users/${USER}/${home}"
+cd "/Users/${USER}/${home}"
+pwd
 echo 'Use dashes instead of spaces'
 read -p 'Application Name: ' name
 read -p 'Version: ' version
@@ -23,9 +24,10 @@ read -p 'Class with main method (if using packages, include full reference): ' c
 read -p 'Continue? (y : n): ' cont
 if [ $cont = 'n' ]
 then
-    echo 'exit'
-    exit
+echo 'exit'
+exit
 fi
+
 echo
 name=${name// /-}
 
@@ -51,9 +53,9 @@ echo
 # Export the application
 # change -native <type> to be whatever desired supported export format
 jdk=$(/usr/libexec/java_home)
-$jdk/bin/javapackager -deploy -native dmg -name ${name}-${version} \
+$jdk/bin/javapackager -deploy -native dmg -name ${name} -title $name \
 -BappVersion=$version -Bicon=package/macosx/$name.icns \
--srcdir . -srcfiles $name.jar -appclass $class \
+-srcdir . -srcfiles $name-$version.jar -appclass $class \
 -outdir out -v
 suffix=$type
 

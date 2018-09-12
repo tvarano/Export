@@ -8,13 +8,14 @@ echo -e '\tHave all resources in the folder'
 echo -e '\tNO SPACES. Use Dashes (-)'
 echo
 echo 'Type "q" to quit'
-read -p 'Directory containing contents: /Users/'${USER}'/' home
+read -p 'Directory containing contents: /Users/${USER}/' home
 if [ $home = 'q' ]
 then
 echo 'exit'
 exit
 fi
     cd "/Users/${USER}/${home}"
+pwd
 echo 'Use dashes instead of spaces'
 read -p 'Application Name: ' name
 read -p 'Version: ' version
@@ -26,6 +27,7 @@ then
     echo 'exit'
     exit
 fi
+
 echo
 name=${name// /-}
 
@@ -51,9 +53,9 @@ echo
 # Export the application
 # change -native <type> to be whatever desired supported export format
 jdk=$(/usr/libexec/java_home)
-$jdk/bin/javapackager -deploy -native dmg -name ${name}-${version} \
+$jdk/bin/javapackager -deploy -native dmg -name ${name} -title $name \
 -BappVersion=$version -Bicon=package/macosx/$name.icns \
--srcdir . -srcfiles $name.jar -appclass $class \
+-srcdir . -srcfiles $name-$version.jar -appclass $class \
 -outdir out -v
 suffix=$type
 
